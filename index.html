@@ -4,15 +4,52 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | HGK_openhouse</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body style="text-align: center">
     <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #BFBFBF"></canvas>
-    <script src="Build/201220_openhouse_LINKtest7.loader.js"></script>
+    <script src="Build/201223_openhouse_responsive2.loader.js"></script>
     <script>
+    
+    var isFullscreen = false;
+
+    // update canvas size
+    var refreshCanvas = function(){
+      var newWidth = $( ".webgl-content" ).width();
+      var newHeight = (9/16) * newWidth;
+      $("#unity-canvas").width(newWidth);
+      $("#unity-canvas").height(newHeight);
+    };
+
+    $(function() {
+      // scale canvas correctly once on start
+      refreshCanvas();
+    });
+
+    // on window resize, apply width to game
+    $( window ).resize(function() {
+      refreshCanvas();
+    });
+
+    // check for fullscreen toggle
+    $(document).keydown(function(event) {
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      if(keycode == '70'){
+        if (!isFullscreen) {
+          unityInstance.SetFullscreen(1);
+          isFullscreen = true;
+        }
+        else {
+          unityInstance.SetFullscreen(0);
+          isFullscreen = false;
+        }
+      }
+    });
+
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/201220_openhouse_LINKtest7.data.unityweb",
-        frameworkUrl: "Build/201220_openhouse_LINKtest7.framework.js.unityweb",
-        codeUrl: "Build/201220_openhouse_LINKtest7.wasm.unityweb",
+        dataUrl: "Build/201223_openhouse_responsive2.data.unityweb",
+        frameworkUrl: "Build/201223_openhouse_responsive2.framework.js.unityweb",
+        codeUrl: "Build/201223_openhouse_responsive2.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "HGK_openhouse",
