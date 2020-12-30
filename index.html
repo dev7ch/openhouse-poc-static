@@ -7,57 +7,57 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body style="text-align: center">
-    <div class="webgl-content"></div>
+    <div class="webgl-content">
     <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #BFBFBF"></canvas>
-    <script src="Build/201228_openhouse_newtab2.loader.js"></script>
+    <script src="Build/201230_openhouse_newtab4.loader.js"></script>
     <script>
+
       var isFullscreen = false;
 
-// update canvas size
-var refreshCanvas = function(){
-  var newWidth = $( ".webgl-content" ).width();
-  var newHeight = (9/16) * newWidth;
-  $("#unity-canvas").width(newWidth);
-  $("#unity-canvas").height(newHeight);
-  console.log($("#unity-canvas"))
-};
+      // update canvas size
+      var refreshCanvas = function(){
+        var newWidth = $( ".webgl-content" ).width();
+        var newHeight = (9/16) * newWidth;
+        $("#unity-canvas").width(newWidth);
+        $("#unity-canvas").height(newHeight);
+        console.log($("#unity-canvas"))
+      };
 
-console.log($("#unity-canvas"))
+      console.log($("#unity-canvas"))
 
-$(function() {
-  // scale canvas correctly once on start
-  refreshCanvas();
-});
+      $(function() {
+        // scale canvas correctly once on start
+        refreshCanvas();
+      });
 
-// on window resize, apply width to game
-$( window ).resize(function() {
-  refreshCanvas();
-});
+      // on window resize, apply width to game
+      $( window ).resize(function() {
+        refreshCanvas();
+      });
 
-// check for fullscreen toggle
-$(document).keydown(function(event) {
-  var keycode = (event.keyCode ? event.keyCode : event.which);
-  if(keycode == '70'){
-    if (!isFullscreen) {
-      unityInstance.SetFullscreen(1);
-      isFullscreen = true;
-    }
-    else {
-      unityInstance.SetFullscreen(0);
-      isFullscreen = false;
-    }
-  }
-});
+      // check for fullscreen toggle
+      $(document).keydown(function(event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '70'){
+          if (!isFullscreen) {
+            unityInstance.SetFullscreen(1);
+            isFullscreen = true;
+          }
+          else {
+            unityInstance.SetFullscreen(0);
+            isFullscreen = false;
+          }
+        }
+      });
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/201228_openhouse_newtab2.data.unityweb",
-        frameworkUrl: "Build/201228_openhouse_newtab2.framework.js.unityweb",
-        codeUrl: "Build/201228_openhouse_newtab2.wasm.unityweb",
+        dataUrl: "Build/201230_openhouse_newtab4.data.unityweb",
+        frameworkUrl: "Build/201230_openhouse_newtab4.framework.js.unityweb",
+        codeUrl: "Build/201230_openhouse_newtab4.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "HGK_openhouse",
         productVersion: "0.1",
       });
     </script>
-     <button onclick="window.open(url,'_blank’);"> Open Link </button>
   </body>
 </html>
