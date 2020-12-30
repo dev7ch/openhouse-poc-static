@@ -9,9 +9,10 @@
   <body style="text-align: center">
     <div class="webgl-content"></div>
     <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #BFBFBF"></canvas>
-    <script src="Build/201230_openhouse_newtab6.loader.js"></script>
+    <script src="Build/201230_openhouse.loader.js"></script>
     <script>
-      var isFullscreen = false;
+
+var isFullscreen = false;
 
 // update canvas size
 var refreshCanvas = function(){
@@ -48,10 +49,11 @@ $(document).keydown(function(event) {
     }
   }
 });
+
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/201230_openhouse_newtab6.data.unityweb",
-        frameworkUrl: "Build/201230_openhouse_newtab6.framework.js.unityweb",
-        codeUrl: "Build/201230_openhouse_newtab6.wasm.unityweb",
+        dataUrl: "Build/201230_openhouse.data.unityweb",
+        frameworkUrl: "Build/201230_openhouse.framework.js.unityweb",
+        codeUrl: "Build/201230_openhouse.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "HGK_openhouse",
