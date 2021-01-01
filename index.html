@@ -8,19 +8,25 @@
   </head>
   <body style="text-align: center">
     <div class="webgl-content"></div>
-    <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #307ae5"></canvas>
+    <canvas id="unity-canvas" style="width: 960px; height: 600px; background: transparent"></canvas>
     <script src="Build/201230_openhouse.loader.js"></script>
     <script>
       // update canvas size
       var refreshCanvas = function(){
-        var newWidth = $( ".webgl-content" ).width();
-        var newHeight = (9/16) * newWidth;
+        // var newWidth = $( ".webgl-content" ).width();
+        // var newHeight = (9/16) * newWidth;
+
+        // Update canvas to inner window width
         $("#unity-canvas").width(window.innerWidth - 15);
         $("#unity-canvas").height(window.innerHeight - 15);
       };
 
+      // scale canvas correctly once on start
       $(function() {
-        // scale canvas correctly once on start
+        refreshCanvas();
+      });
+      // update on resize
+      $( window ).resize(function() {
         refreshCanvas();
       });
       // start unity
@@ -32,10 +38,6 @@
         companyName: "DefaultCompany",
         productName: "HGK_openhouse",
         productVersion: "0.1",
-      });
-      console.log(unityInstance)
-      $( window ).resize(function() {
-        refreshCanvas();
       });
     </script>
   </body>
