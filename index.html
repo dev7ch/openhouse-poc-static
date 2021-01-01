@@ -11,46 +11,26 @@
     <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #BFBFBF"></canvas>
     <script src="Build/201230_openhouse.loader.js"></script>
     <script>
+      // update canvas size
+      var refreshCanvas = function(){
+        // var newWidth = $( ".webgl-content" ).width();
+        // var newHeight = (9/16) * newWidth;
 
-var isFullscreen = false;
+        // Update canvas to inner window width
+        $("#unity-canvas").width(window.innerWidth - 15);
+        $("#unity-canvas").height(window.innerHeight - 15);
+      };
 
-// update canvas size
-var refreshCanvas = function(){
-  var newWidth = $( ".webgl-content" ).width();
-  var newHeight = (9/16) * newWidth;
-  $("#unity-canvas").width(newWidth);
-  $("#unity-canvas").height(newHeight);
-  console.log($("#unity-canvas"))
-};
-
-console.log($("#unity-canvas"))
-
-$(function() {
-  // scale canvas correctly once on start
-  refreshCanvas();
-});
-
-// on window resize, apply width to game
-$( window ).resize(function() {
-  refreshCanvas();
-});
-
-// check for fullscreen toggle
-$(document).keydown(function(event) {
-  var keycode = (event.keyCode ? event.keyCode : event.which);
-  if(keycode == '70'){
-    if (!isFullscreen) {
-      unityInstance.SetFullscreen(1);
-      isFullscreen = true;
-    }
-    else {
-      unityInstance.SetFullscreen(0);
-      isFullscreen = false;
-    }
-  }
-});
-
-      createUnityInstance(document.querySelector("#unity-canvas"), {
+      // scale canvas correctly once on start
+      $(function() {
+        refreshCanvas();
+      });
+      // update on resize
+      $( window ).resize(function() {
+        refreshCanvas();
+      });
+      // start unity
+      const unityInstance = createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/201230_openhouse.data.unityweb",
         frameworkUrl: "Build/201230_openhouse.framework.js.unityweb",
         codeUrl: "Build/201230_openhouse.wasm.unityweb",
@@ -59,6 +39,12 @@ $(document).keydown(function(event) {
         productName: "HGK_openhouse",
         productVersion: "0.1",
       });
+
+      // modify unity
+
+      unityInstance.then(res => {
+        console.log(res)
+      })
     </script>
   </body>
 </html>
