@@ -13,12 +13,12 @@
     <script>
       // update canvas size
       var refreshCanvas = function(){
-        // var newWidth = $( ".webgl-content" ).width();
-        // var newHeight = (9/16) * newWidth;
+        var newWidth = $( ".webgl-content" ).width();
+        var newHeight = (9/16) * newWidth;
 
         // Update canvas to inner window width
-        $("#unity-canvas").width(window.innerWidth - 15);
-        $("#unity-canvas").height(window.innerHeight - 115);
+        $("#unity-canvas").width(window.innerWidth - 15 || newWidth);
+        $("#unity-canvas").height(window.innerHeight - 115 || newHeight);
       };
 
       // scale canvas correctly once on start
@@ -34,7 +34,7 @@
         companyName: "DefaultCompany",
         productName: "HGK_openhouse",
         productVersion: "0.1",
-      }, onprogress)
+      })
 
       // update on resize
       $( window ).resize(function() {
