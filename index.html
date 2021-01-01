@@ -18,19 +18,15 @@
 
         // Update canvas to inner window width
         $("#unity-canvas").width(window.innerWidth - 15);
-        $("#unity-canvas").height(window.innerHeight - 105);
+        $("#unity-canvas").height(window.innerHeight - 115);
       };
 
       // scale canvas correctly once on start
       $(function() {
         refreshCanvas();
       });
-      // update on resize
-      $( window ).resize(function() {
-        refreshCanvas();
-      });
       // start unity
-      const unityInstance = createUnityInstance(document.querySelector("#unity-canvas"), {
+      createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/201230_openhouse.data.unityweb",
         frameworkUrl: "Build/201230_openhouse.framework.js.unityweb",
         codeUrl: "Build/201230_openhouse.wasm.unityweb",
@@ -38,13 +34,12 @@
         companyName: "DefaultCompany",
         productName: "HGK_openhouse",
         productVersion: "0.1",
+      }, onprogress)
+
+      // update on resize
+      $( window ).resize(function() {
+        refreshCanvas();
       });
-
-      // modify unity
-
-      unityInstance.then(res => {
-        console.log(res)
-      })
     </script>
   </body>
 </html>
