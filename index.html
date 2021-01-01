@@ -5,10 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | HGK_openhouse</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+    </style>
   </head>
   <body style="text-align: center">
     <div class="webgl-content"></div>
-    <canvas id="unity-canvas" style="width: 960px; height: 600px; background: transparent"></canvas>
+    <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #BFBFBF"></canvas>
     <script src="Build/201230_openhouse.loader.js"></script>
     <script>
       // update canvas size
@@ -39,6 +41,12 @@
         productName: "HGK_openhouse",
         productVersion: "0.1",
       });
+
+      // modify unity
+
+      unityInstance.then(res => {
+        console.log(res)
+      })
     </script>
   </body>
 </html>
