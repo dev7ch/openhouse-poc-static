@@ -6,9 +6,9 @@
     <title>Unity WebGL Player | HGK_openhouse</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
-  <body style="text-align: center">
+  <body style="text-align: center; background-color: transparent">
     <div class="webgl-content"></div>
-    <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #BFBFBF"></canvas>
+    <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #BFBFBF; transition: all 0.3s ease-in-out"></canvas>
     <script src="Build/201230_openhouse.loader.js"></script>
     <script>
       // update canvas size
@@ -18,7 +18,7 @@
 
         // Update canvas to inner window width
         $("#unity-canvas").width(window.innerWidth - 15);
-        $("#unity-canvas").height(window.innerHeight - 15);
+        $("#unity-canvas").height(window.innerHeight - 105);
       };
 
       // scale canvas correctly once on start
