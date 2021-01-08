@@ -21,14 +21,11 @@
     </div> </div>
     <script>
 
-      // update canvas size
       var refreshCanvas = function(){
-        var newWidth = $( ".webgl-content" ).width();
-        var newHeight = (9/16) * newWidth;
-
-        // Update canvas to inner window width
-        $("#unity-canvas").width(window.innerWidth || newWidth);
-        $("#unity-canvas").height(window.innerHeight - 65 || newHeight);
+      var newWidth = $( ".webgl-content" ).width();
+      var newHeight = (9/16) * newWidth;
+      $("#unityContainer").width(newWidth);
+      $("#unityContainer").height(newHeight);
       };
 
       // scale canvas correctly once on start
@@ -38,11 +35,11 @@
       // start unity
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/210106_openhouse.loader.js";
+      var loaderUrl = buildUrl + "/210107_openhouse.loader.js";
       var config = {
-        dataUrl: buildUrl + "/210106_openhouse.data.unityweb",
-        frameworkUrl: buildUrl + "/210106_openhouse.framework.js.unityweb",
-        codeUrl: buildUrl + "/210106_openhouse.wasm.unityweb",
+        dataUrl: buildUrl + "/210107_openhouse.data.unityweb",
+        frameworkUrl: buildUrl + "/210107_openhouse.framework.js.unityweb",
+        codeUrl: buildUrl + "/210107_openhouse.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "HGK_openhouse",
