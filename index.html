@@ -21,13 +21,15 @@
     </div> </div>
     <script>
 
+      // update canvas size
       var refreshCanvas = function(){
-      var newWidth = $( ".webgl-content" ).width();
-      var newHeight = (9/16) * newWidth;
-      $("#unityContainer").width(newWidth);
-      $("#unityContainer").height(newHeight);
-      };
+        var newWidth = $( ".webgl-content" ).width();
+        var newHeight = (9/16) * newWidth;
 
+        // Update canvas to inner window width
+        $("#unity-canvas").width(window.innerWidth || newWidth);
+        $("#unity-canvas").height(window.innerHeight - 65 || newHeight);
+      };
       // scale canvas correctly once on start
       $(function() {
         refreshCanvas();
@@ -51,13 +53,6 @@
       var loadingBar = document.querySelector("#unity-loading-bar");
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        config.devicePixelRatio = 1;
-      } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
