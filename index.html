@@ -68,17 +68,19 @@
         var newHeight = (9/16) * newWidth;
         // Update canvas to inner window width
         // Test on mobile
-        if (isMobile) {
-          canvas.style.transform = "rotate(90deg)";
-          // canvas.style.webkitTransform = "rotate(90deg)";
-          $("#unity-canvas").width('620px');
-          $("#unity-canvas").height('350px');
-        } else {
-          canvas.style.transform = "rotate(0)";
-          // canvas.style.webkitTransform = "rotate(0)"
-          $("#unity-canvas").width(newWidth);
-          $("#unity-canvas").height(newHeight);
-        }
+        $("#unity-canvas").width(newWidth);
+        $("#unity-canvas").height(newHeight);
+        // if (isMobile) {
+        //   canvas.style.transform = "rotate(90deg)";
+        //   // canvas.style.webkitTransform = "rotate(90deg)";
+        //   $("#unity-canvas").width('620px');
+        //   $("#unity-canvas").height('350px');
+        // } else {
+        //   canvas.style.transform = "rotate(0)";
+        //   // canvas.style.webkitTransform = "rotate(0)"
+        //   $("#unity-canvas").width(newWidth);
+        //   $("#unity-canvas").height(newHeight);
+        // }
 
       };
       $(function() {
