@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="de">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -11,7 +11,7 @@
   <body style="text-align: center; background-color: transparent; margin: 0; padding: 0">
     <div class="webgl-content">
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #307AE5;"> </canvas>
+      <canvas id="unity-canvas" style="width: 960px; height: 600px;"> </canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -21,19 +21,6 @@
     </div> </div>
     <script>
 
-      // update canvas size
-      var refreshCanvas = function(){
-        var newWidth = $( ".webgl-content" ).width();
-        var newHeight = (9/16) * newWidth;
-
-        // Update canvas to inner window width
-        $("#unity-canvas").width(window.innerWidth || newWidth);
-        $("#unity-canvas").height(window.innerHeight - 65 || newHeight);
-      };
-      // scale canvas correctly once on start
-      $(function() {
-        refreshCanvas();
-      });
       // start unity
 
       var buildUrl = "Build";
@@ -61,18 +48,43 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
+          console.log(unityInstance)
           loadingBar.style.display = "none";
         }).catch((message) => {
           alert(message);
         });
       };
       document.body.appendChild(script);
-
       // update on resize
-      $( window ).resize(function() {
+      $(window).resize(async function() {
+        await refreshCanvas();
+      });
+      // scale canvas correctly once on start
+
+      // update canvas size functions
+      var refreshCanvas = function(){
+        var isMobile = window.matchMedia("(max-width: 640px)").matches
+        var newWidth = $( ".webgl-content" ).width();
+        var newHeight = (9/16) * newWidth;
+        // Update canvas to inner window width
+        // Test on mobile
+        if (isMobile) {
+          canvas.style.transform = "rotate(90deg)";
+          // canvas.style.webkitTransform = "rotate(90deg)";
+          $("#unity-canvas").width('620px');
+          $("#unity-canvas").height('350px');
+        } else {
+          canvas.style.transform = "rotate(0)";
+          // canvas.style.webkitTransform = "rotate(0)"
+          $("#unity-canvas").width(newWidth);
+          $("#unity-canvas").height(newHeight);
+        }
+
+      };
+      $(function() {
         refreshCanvas();
       });
-      
+
     </script>
   </body>
 </html>
