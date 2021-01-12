@@ -24,11 +24,11 @@
       // start unity
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/210112_openhouse.loader.js";
+      var loaderUrl = buildUrl + "/hgk_openhouse.loader.js";
       var config = {
-        dataUrl: buildUrl + "/210112_openhouse.data.unityweb",
-        frameworkUrl: buildUrl + "/210112_openhouse.framework.js.unityweb",
-        codeUrl: buildUrl + "/210112_openhouse.wasm.unityweb",
+        dataUrl: buildUrl + "/hgk_openhouse.data.unityweb",
+        frameworkUrl: buildUrl + "/hgk_openhouse.framework.js.unityweb",
+        codeUrl: buildUrl + "/hgk_openhouse.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "HGK_openhouse",
@@ -40,13 +40,6 @@
       var loadingBar = document.querySelector("#unity-loading-bar");
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        config.devicePixelRatio = 1;
-      } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
@@ -79,7 +72,6 @@
         $("#unity-canvas").height(newHeight);
 
       };
-      
       $(function() {
         refreshCanvas();
       });
