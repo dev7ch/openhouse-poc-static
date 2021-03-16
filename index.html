@@ -24,11 +24,11 @@
       // start unity
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/hgk_openhouse.loader.js";
+      var loaderUrl = buildUrl + "/openhouse_updated.loader.js";
       var config = {
-        dataUrl: buildUrl + "/hgk_openhouse.data.unityweb",
-        frameworkUrl: buildUrl + "/hgk_openhouse.framework.js.unityweb",
-        codeUrl: buildUrl + "/hgk_openhouse.wasm.unityweb",
+        dataUrl: buildUrl + "/openhouse_updated.data.unityweb",
+        frameworkUrl: buildUrl + "/openhouse_updated.framework.js.unityweb",
+        codeUrl: buildUrl + "/openhouse_updated.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "HGK_openhouse",
@@ -39,6 +39,7 @@
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
+
 
       loadingBar.style.display = "block";
 
