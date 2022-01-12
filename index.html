@@ -69,7 +69,6 @@
         var isMobile = window.matchMedia("(max-width: 520px)").matches
         var newWidth = isMobile ? window.innerHeight : window.innerWidth;
         var newHeight = isMobile ? window.innerWidth : window.innerHeight;
-        console.log(isMobile)
         $("#unity-canvas").width(newWidth);
         $("#unity-canvas").height(newHeight);
 
