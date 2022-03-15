@@ -25,11 +25,11 @@
       // start unity
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/openhouse22_v7.loader.js";
+      var loaderUrl = buildUrl + "/exports.loader.js";
       var config = {
-        dataUrl: buildUrl + "/openhouse22_v7.data.unityweb",
-        frameworkUrl: buildUrl + "/openhouse22_v7.framework.js.unityweb",
-        codeUrl: buildUrl + "/openhouse22_v7.wasm.unityweb",
+        dataUrl: buildUrl + "/exports.data.unityweb",
+        frameworkUrl: buildUrl + "/exports.framework.js.unityweb",
+        codeUrl: buildUrl + "/exports.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "HGK_openhouse",
