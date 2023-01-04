@@ -69,8 +69,8 @@ var canvas = document.querySelector("#unity-canvas");
       // update canvas size functions
       const refreshCanvas = function(){
         const isMobile = window.matchMedia("(max-width: 520px)").matches;
-        const newWidth = isMobile ? window.innerHeight - 90 : window.innerWidth;
-        const newHeight = isMobile ? window.innerWidth - 90 : window.innerHeight;
+        const newWidth = isMobile ? window.innerHeight : window.innerWidth;
+        const newHeight = isMobile ? window.innerWidth - 45 : window.innerHeight;
         document.body.querySelector("#unity-canvas").style.width = newWidth + 'px';
         document.body.querySelector("#unity-canvas").style.height = newHeight + 'px';
 
