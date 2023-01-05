@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Unity WebGL Player | HGK_openhouse</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -62,9 +62,9 @@ var canvas = document.querySelector("#unity-canvas");
         await refreshCanvas();
       }); */
 
-      addEventListener("orientationchange", async () => {
+      /* addEventListener("orientationchange", async () => {
         // await refreshCanvas();
-      });
+      }); */
 
       // update canvas size functions
       const refreshCanvas = function(){
